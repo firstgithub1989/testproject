@@ -1,0 +1,21 @@
+<div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <table class="table">
+      <tr>
+          <th>COIN</th>
+          <th>TOTAL</th> 
+          <th>INORDERS</th>
+          <th>AVAILABLE</th>
+        </tr>
+    <tr *ngFor="let koinWallet of koinWallets">
+        
+      <td>{{koinWallet.coinName}}</td>
+      <td>{{koinWallet.total}}</td>
+      <td>{{koinWallet.inOrders}}</td>
+      <td>{{koinWallet.available}}</td>
+    </tr> 
+  </table>  
+</div>

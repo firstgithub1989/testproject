@@ -1,20 +1,41 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div style="text-align:center">{{appTitle}}</div>
+<!-- <app-ticker></app-ticker> -->
+<!-- <nav><a class ="nav-link" [routerLink] = "['graph-cmp']">New component</a></nav> -->
+<div class="navigation">
+    <!-- <a class='top-header' [routerLink]="['app-ticker']">market</a> -->
+    <ul class="navigation">
+      <li class='title'>WELCOME TO CRYPTOTRADE </li>
+      <li *ngIf="!auth" class="navigation">
+        <a [routerLink]="['app-auth']">Login</a>
+      </li>
+      <li class="dropdown" *ngIf="auth">
+        <a href="javascript:void(0)" class="dropbtn">PROFILE</a>
+        <div class="dropdown-content">
+          <a class='uppercase' [routerLink]="['app-profile']" >MY PROFILE</a>
+          <a class='uppercase' ng-click='vm.signIn()' >SIGN OUT</a>
+        </div>
+      </li>
 
+      <li *ngIf="!auth" class="navigation">
+        <a [routerLink]="['app-auth']">Register</a>
+      </li>
+      <li class="dropdown" *ngIf="auth">
+        <a href="javascript:void(0)" class="dropbtn">BALANCES</a>
+        <div class="dropdown-content">
+          
+            <a class='uppercase' [routerLink]="['balances']" *ngIf="auth">KOIN WALLET</a>
+            <a class='uppercase' ng-click='vm.signIn()' *ngIf="!auth">KOIN WALLET</a>
+          
+            <a class='uppercase' [routerLink]="['inrwallet']" *ngIf="auth">INR WALLET</a>
+            <a class='uppercase' ng-click='vm.signIn()' *ngIf="!auth">INR WALLET</a>
+            
+            <a class='uppercase' href='history' *ngIf="auth">MY HISTORY</a>
+            <a class='uppercase' ng-click='vm.signIn()' *ngIf="!auth">MY HISTORY</a>
+        </div>
+      </li>
+      <li class="navigation">
+        <a [routerLink]="['']">MARKETPLACE</a>
+      </li>
+    </ul>
+</div>
+<router-outlet></router-outlet>

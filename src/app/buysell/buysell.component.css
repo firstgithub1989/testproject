@@ -1,0 +1,13 @@
+graph {
+    float: left;
+    width: 50%;
+}
+
+form {
+    float: right;
+}
+
+table {
+    float: centre;
+    width: 20%
+}

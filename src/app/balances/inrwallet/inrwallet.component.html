@@ -1,0 +1,19 @@
+<div>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <table class="table">
+    <tr>
+        <th>TOTAL</th> 
+        <th>INORDERS</th>
+        <th>AVAILABLE</th>
+    </tr>
+    <tr *ngFor="let inrDetail of inrDetails">
+      <td>{{inrDetail.total}}</td>
+      <td>{{inrDetail.inOrders}}</td>
+      <td>{{inrDetail.available}}</td>
+    </tr> 
+  </table>  
+</div>

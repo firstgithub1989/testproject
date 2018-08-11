@@ -1,0 +1,31 @@
+<div>
+  <h1>
+    MarketPlace
+  </h1>
+  <select id="option" formControlName="option" (change)="onOptionSelect($event)" >
+      <option *ngFor='let option of curOptions' [value]="option">{{option}}</option>
+  </select>
+  <table class="table">
+    <tr>
+        <th>COIN</th>
+        <th>RATE</th> 
+        <th>CHANGE24H</th> 
+    </tr>
+    <!-- <ul class="items">
+        <li *ngFor="let hero of heroes$ | async"
+          [class.selected]="hero.id === selectedId">
+          <a [routerLink]="['/hero', hero.id]">
+            <span class="badge">{{ hero.id }}</span>{{ hero.name }}
+          </a>
+        </li>
+      </ul> -->
+    <tr  *ngFor="let tick of ticker">
+      <a [routerLink]="['/buysell']"><td>{{tick.currency}}</td></a>
+      <td>{{tick.rate | number:'1.0-4'}}</td>
+      <td>{{tick.change | number :'2.2-2'}}%</td>
+    </tr> 
+  </table>  
+</div>
+<ng-template #loading>Loading User Data...</ng-template>
+    <!--<li>{{rate.rate}}</li>-->
+    
